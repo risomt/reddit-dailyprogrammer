@@ -59,11 +59,17 @@ Sample Output 2
 from sys import argv
 
 with open(argv[1]) as data:
+        # first line of input is the number of strings we'll have
+        # we don't actually use this, though...
         num_strings = int(data.readline().strip())
 
         strings = []
         longest_string = 0
 
+        # retrieve each string and identify which is the longest
+        # neat solutions for max length from reddit thread: 
+        #       max(len(line) for line in lines)
+        #       len(max(lines, key=len))
         for line in data.readlines():
                 string = line.strip()
 
@@ -72,6 +78,9 @@ with open(argv[1]) as data:
                 if len(string) > longest_string:
                         longest_string = len(string)
 
+        # transpose all strings
+        # loop through 0 to max length, then print out corresponding value
+        # for each string if it exists (if not, print space as placeholder)
         for x_char in range(0, longest_string):
                 temp = []
 
